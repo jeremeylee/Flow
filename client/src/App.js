@@ -29,26 +29,58 @@ const App = (props) => {
       return;
     }
     console.log(result);
-    const process = data.processes[destination.droppableId];
-    const newTask = [ ...process.taskIds];
-    newTask.splice(source.index, 1);
-    newTask.splice(destination.index, 0, draggableId);
+    const startProcess = data.processes[source.droppableId];
+    const endProcess = data.processes[destination.droppableId];
 
-    const newProcess = {
-      ...process,
-      taskIds: newTask,
-    };
+    if(startProcess == endProcess) {
+      const newTask = [ ...startProcess.taskIds];
+      newTask.splice(source.index, 1);
+      newTask.splice(destination.index, 0, draggableId);
+  
+      const newProcess = {
+        ...startProcess,
+        taskIds: newTask,
+      };
+  
+      const newData = {
+        ...data,
+         processes: {
+           ...data.processes,
+          [newProcess.id]: newProcess,
+        },
+      };
 
-    const newData = {
-      ...data,
-       processes: {
-         ...data.processes,
-        [newProcess.id]: newProcess,
-      },
-    };
-    console.log(newData);
-    setData(newData);
-  }
+      setData(newData);
+      return;
+    } else {
+        const newStartTask = [ ...startProcess.taskIds];
+        const newEndTask = [ ...endProcess.taskIds];
+        
+        newStartTask.splice(source.index, 1);
+        newEndTask.splice(destination.index, 0, draggableId);
+
+        const newStartProcess = {
+          ...startProcess,
+          taskIds: newStartTask,
+        };
+
+        const newEndProcess = {
+          ...endProcess,
+          taskIds: newEndTask,
+        };
+
+        const newData = {
+          ...data,
+          processes: {
+            ...data.processes,
+            [startProcess.id]: newStartProcess,
+            [endProcess.id]: newEndProcess,
+          },
+        };
+          setData(newData);
+          return;
+        }
+    }
 
   return (
     <div>
