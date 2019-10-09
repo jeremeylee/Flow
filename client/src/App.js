@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Process from './components/Process';
 import { DragDropContext } from 'react-beautiful-dnd';
+import Grid from '@material-ui/core/Grid';
 
 const App = (props) => {
-  const test = ["task1", "task2", "task3"];
-  const [task, setTask] = useState(test);
+  const testTask = ["task1", "task2", "task3"];
+  const testProcess = ["Open", "To Do", "Ongoing", "Done"];
+  
+  const [task, setTask] = useState(testTask);
+  const [process, setProcess] = useState(testProcess);
+
   const handleDragEnd = (result) => {
 
     const {destination, source, draggableId } = result;
@@ -32,10 +37,20 @@ const App = (props) => {
       <Header />
       <DragDropContext
         onDragEnd={handleDragEnd}
+        spacing={3}
       >
-        <Process 
-          test={task}
-        />
+        <Grid
+          container
+        >
+          {process.map((processName) => (
+            <Grid item xs={12} sm={8} md={6} lg={3}>
+              <Process 
+                processName={processName}
+                test={task}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </DragDropContext>
       
     </div>

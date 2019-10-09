@@ -16,7 +16,7 @@ import InputBase from '@material-ui/core/InputBase';
 const Header = (props) => {
   const [open, setOpen] = useState(false);
   const drawerContent = ['Inbox', 'Starred', 'Send email', 'Drafts'];
-
+  
   const handleDrawerOpen = () => {
     console.log("open");
     setOpen(true);
