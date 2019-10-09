@@ -5,7 +5,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Grid from '@material-ui/core/Grid';
 
 const App = (props) => {
-  const testTask = ["task1", "task2", "task3"];
+  const testTask = [["task1", "task2", "task3"], ["task1", "task2", "task3"], ["task1", "task2", "task3"], ["task1", "task2", "task3"]];
   const testProcess = ["Open", "To Do", "Ongoing", "Done"];
   
   const [task, setTask] = useState(testTask);
@@ -13,7 +13,7 @@ const App = (props) => {
 
   const handleDragEnd = (result) => {
 
-    const {destination, source, draggableId } = result;
+    const {destination, source} = result;
     
     
     if (!destination) {
@@ -26,7 +26,7 @@ const App = (props) => {
     ) {
       return;
     }
-
+    console.log(result);
     let newTask = [ ...task ];
     [newTask[destination.index], newTask[source.index]] = [newTask[source.index], newTask[destination.index]];
     setTask(newTask);
@@ -42,11 +42,12 @@ const App = (props) => {
         <Grid
           container
         >
-          {process.map((processName) => (
+          {process.map((processName, index) => (
             <Grid item xs={12} sm={8} md={6} lg={3}>
               <Process 
                 processName={processName}
-                test={task}
+                test={task[index]}
+                index={index}
               />
             </Grid>
           ))}

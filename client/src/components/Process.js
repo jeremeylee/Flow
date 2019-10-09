@@ -10,7 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 const Process = (props) => {
 
   return (
-    <Droppable droppableId='1'>
+    <Droppable droppableId={"props.index.toString()"}>
       {(provided) => (
         <Container 
           maxWidth='xs' 
