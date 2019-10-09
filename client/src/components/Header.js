@@ -11,6 +11,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
 
 const Header = (props) => {
   const [open, setOpen] = useState(false);
@@ -29,17 +30,21 @@ const Header = (props) => {
     <div>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6">
-            Flow
-          </Typography>
-          <IconButton
+        <IconButton
             color="inherit"
             aria-label="open drawer"
-            edge="end"
+            edge="start"
             onClick={handleDrawerOpen}
           >
             <MenuIcon />
           </IconButton>
+          <Typography variant="h6">
+            Flow
+          </Typography>
+          <InputBase
+            placeholder="Search..."
+          />
+          <SearchIcon />
         </Toolbar>
       </AppBar>
       <Drawer
