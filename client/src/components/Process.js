@@ -28,13 +28,13 @@ const Process = (props) => {
             >
               <List>
                 {props.task.map((task, index) => (
-                  <Draggable draggableId={task.id} index={index}>
+                  <Draggable draggableId={task.id} index={index} key={`list-${task.id}`}>
                     {(provided) => (
                       <ListItem 
-                        key={task.id}
+            
+                        innerRef={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        innerRef={provided.innerRef}
                       >
                       <ListItemText primary={task.content} />
                     </ListItem>
