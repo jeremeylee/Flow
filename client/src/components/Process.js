@@ -10,43 +10,45 @@ import ListItemText from '@material-ui/core/ListItemText';
 const Process = (props) => {
 
   return (
-    <Droppable droppableId={"props.index.toString()"}>
-      {(provided) => (
         <Container 
           maxWidth='xs' 
           style={{ background: 'red'}} 
-          innerRef={provided.innerRef}
-          {...provided.droppableProps}
         >
           <Typography variant="h6">
-            {props.processName}
+            {props.process.title}
           </Typography>
           <Divider />
-          
-          <List>
-          
-            {props.test.map((text, index) => (
-              <Draggable draggableId={text} index={index}>
-                {(provided) => (
-                  <ListItem 
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    innerRef={provided.innerRef}
-                  >
-                  <ListItemText primary={text} />
-                </ListItem>
-                )}
-              
-              </Draggable>
-
-            ))}
-            {provided.placeholder}
-          </List>
+          <Droppable droppableId={props.process.id}>
+            {(provided) => (
+              <Container
+              maxWidth='xs'
+              style={{ background: 'yellow'}}
+              innerRef={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              <List>
+                {props.task.map((task, index) => (
+                  <Draggable draggableId={task.id} index={index}>
+                    {(provided) => (
+                      <ListItem 
+                        key={task.id}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        innerRef={provided.innerRef}
+                      >
+                      <ListItemText primary={task.content} />
+                    </ListItem>
+                    )}
+                  
+                  </Draggable>
+                ))}
+                
+              </List>
+              {provided.placeholder}
+            </Container>
+            )}
+          </Droppable>
       </Container>
-      )}
-
-    </Droppable>
-
   )
 }
 
