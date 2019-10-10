@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
+import React from 'react';
+import { Droppable } from 'react-beautiful-dnd';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
