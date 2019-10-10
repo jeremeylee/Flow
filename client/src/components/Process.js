@@ -10,16 +10,6 @@ import TaskModal from './TaskModal';
 import Task from './Task';
 
 const Process = (props) => {
-  // const [open, setOpen] = useState(false);
-
-  // const handleOpenModal = () => {
-  //   setOpen(true);
-  // }
-
-  // const handleCloseModal = () => {
-  //   setOpen(false);
-  // }
-
   return (
         <Container 
           style={{ background: 'red' }}
@@ -42,24 +32,6 @@ const Process = (props) => {
                   <Task task={task} index={index} key={index}
 
                   />
-                  // <Draggable draggableId={task.id} index={index} key={task.id} isDragDisabled={open}>
-                  //   {(provided) => (
-                  //     <ListItem
-                  //       key={task.id}
-                  //       innerRef={provided.innerRef}
-                  //       {...provided.draggableProps}
-                  //       {...provided.dragHandleProps}
-                  //     >
-                  //     <ListItemText onClick={handleOpenModal} primary={task.title} />
-                  //     <TaskModal
-                  //       open={open}
-                  //       handleClose={handleCloseModal}
-                  //       task={task}
-                  //     />
-                  //   </ListItem>
-                  //   )}
-                  
-                  // </Draggable>
                 ))}
                 
               </List>
