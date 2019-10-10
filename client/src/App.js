@@ -5,6 +5,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Grid from '@material-ui/core/Grid';
 import initialData from './initialdata';
 
+
 const App = (props) => {
   const [data, setData] = useState(initialData);
 
@@ -95,6 +96,7 @@ const App = (props) => {
   return (
     <div>
       <Header />
+
       <DragDropContext
         onDragEnd={handleDragEnd}
       >
