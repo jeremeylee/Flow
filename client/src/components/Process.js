@@ -7,17 +7,18 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import TaskModal from './TaskModal';
+import Task from './Task';
 
 const Process = (props) => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    setOpen(true);
-  }
+  // const handleOpenModal = () => {
+  //   setOpen(true);
+  // }
 
-  const handleCloseModal = () => {
-    setOpen(false);
-  }
+  // const handleCloseModal = () => {
+  //   setOpen(false);
+  // }
 
   return (
         <Container 
@@ -38,23 +39,27 @@ const Process = (props) => {
             >
               <List>
                 {props.task.map((task, index) => (
-                  <Draggable draggableId={task.id} index={index} key={`list-${task.id}`} isDragDisabled={open}>
-                    {(provided) => (
-                      <ListItem 
-                        innerRef={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                      <ListItemText onClick={handleOpenModal} primary={task.content} />
-                      <TaskModal
-                        open={open}
-                        handleClose={handleCloseModal}
-                        title={task.content}
-                      />
-                    </ListItem>
-                    )}
+                  <Task task={task} index={index} key={index}
+
+                  />
+                  // <Draggable draggableId={task.id} index={index} key={task.id} isDragDisabled={open}>
+                  //   {(provided) => (
+                  //     <ListItem
+                  //       key={task.id}
+                  //       innerRef={provided.innerRef}
+                  //       {...provided.draggableProps}
+                  //       {...provided.dragHandleProps}
+                  //     >
+                  //     <ListItemText onClick={handleOpenModal} primary={task.title} />
+                  //     <TaskModal
+                  //       open={open}
+                  //       handleClose={handleCloseModal}
+                  //       task={task}
+                  //     />
+                  //   </ListItem>
+                  //   )}
                   
-                  </Draggable>
+                  // </Draggable>
                 ))}
                 
               </List>
