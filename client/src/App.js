@@ -95,7 +95,7 @@ const App = (props) => {
 
   return (
     <div>
-      <Header />
+      <Header data={data} setData={setData}/>
 
       <DragDropContext
         onDragEnd={handleDragEnd}
