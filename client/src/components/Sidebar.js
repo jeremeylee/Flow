@@ -8,16 +8,26 @@ import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
 import NewTaskDialog from './NewTaskDialog';
+import NewProcessDialog from './NewProcessDialog';
 
 const Sidebar = (props) => {
-  const [open, setOpen] = useState(false);
+  const [openTask, setOpenTask] = useState(false);
+  const [openProcess, setOpenProcess] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
+  const handleOpenTask = () => {
+    setOpenTask(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseTask = () => {
+    setOpenTask(false);
+  };
+
+  const handleOpenProcess = () => {
+    setOpenProcess(true);
+  };
+
+  const handleCloseProcess = () => {
+    setOpenProcess(false);
   };
   return (
     <Drawer
@@ -38,12 +48,17 @@ const Sidebar = (props) => {
         </ListItem>
       ))}
     </List>
-    <Button variant="contained" color="default">New Process</Button>
-    <Button variant="contained" color="default" onClick={handleOpen}>New Task</Button>
+    <Button variant="contained" color="default" onClick={handleOpenProcess}>New Process</Button>
+    <NewProcessDialog 
+      open={openProcess}
+      handleClose={handleCloseProcess}
+      handleOpen={handleOpenProcess}
+    />
+    <Button variant="contained" color="default" onClick={handleOpenTask}>New Task</Button>
     <NewTaskDialog
-      open={open}
-      handleClose={handleClose}
-      handleOpen={handleOpen}
+      open={openTask}
+      handleClose={handleCloseTask}
+      handleOpen={handleOpenTask}
     />
     </Drawer>
   )
