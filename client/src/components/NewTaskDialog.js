@@ -19,17 +19,34 @@ const NewTaskDialog = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newData = {
-      ...props.data,
-      tasks: {
-        'test': {
-          id: 'test',
-          title: taskName,
-          content: taskContent,
-        },
-      },
+    const newTask = { 
+      ...props.data.tasks,
+      'test': {
+        id: 'test',
+        title: taskName,
+        content: taskContent,
+      }
+    };
+    console.log(props.data);
+    const processes = props.data.processes;
+    const process = processes['process-1'];
+    const taskIds = process.taskIds.push('test');
+    const processToUpdate = {
+      ...process,
+      taskIds: taskIds,
     };
 
+    const newProcessTask = {
+      ...processes,
+      process: processToUpdate,
+    }
+    console.log(process)
+    const newData = {
+      ...props.data,
+      processes: newProcessTask,
+      tasks: newTask,
+    };
+    console.log(newData);
     props.setData(newData);
   };
   return (
