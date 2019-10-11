@@ -14,6 +14,7 @@ const NewProcessDialog = (props) => {
         <DialogContent>
           <TextField
             autoFocus
+            required
             margin="dense"
             id="Process name"
             label="Enter the process name"

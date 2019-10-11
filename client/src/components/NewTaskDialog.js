@@ -14,6 +14,7 @@ const NewTaskDialog = (props) => {
         <DialogContent>
           <TextField
             autoFocus
+            required
             margin="dense"
             id="Task Name"
             label="Enter the task name"
@@ -21,7 +22,6 @@ const NewTaskDialog = (props) => {
           />
   
           <TextField
-            autoFocus
             margin="dense"
             id="Task Content"
             label="Enter a description"
