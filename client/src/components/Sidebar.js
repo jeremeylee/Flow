@@ -59,6 +59,8 @@ const Sidebar = (props) => {
       open={openTask}
       handleClose={handleCloseTask}
       handleOpen={handleOpenTask}
+      data={props.data}
+      setData={props.setData}
     />
     </Drawer>
   )

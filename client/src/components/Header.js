@@ -48,7 +48,7 @@ const Header = (props) => {
           <SearchIcon />
         </Toolbar>
       </AppBar>
-      <Sidebar open={open} handleDrawerClose={handleDrawerClose} drawerContent={drawerContent} />
+      <Sidebar open={open} handleDrawerClose={handleDrawerClose} drawerContent={drawerContent} data={props.data} setData={props.setData}/>
       {/* <Drawer
         variant="persistent"
         anchor="left"
