@@ -6,8 +6,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import Button from '@material-ui/core/Button';
+import NewTaskDialog from './NewTaskDialog';
 
 const Sidebar = (props) => {
+
+  const handleNewTask = () => (
+    <NewTaskDialog />
+  );
+
   return (
     <Drawer
     variant="persistent"
@@ -27,6 +34,8 @@ const Sidebar = (props) => {
         </ListItem>
       ))}
     </List>
+    <Button variant="contained" color="default">New Process</Button>
+    <Button variant="contained" color="default" onClick={handleNewTask}>New Task</Button>
     </Drawer>
   )
 }
