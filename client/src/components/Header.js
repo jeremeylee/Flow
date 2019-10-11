@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import Drawer from '@material-ui/core/Drawer';
+// import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+// import Divider from '@material-ui/core/Divider';
+// import List from '@material-ui/core/List';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
+// import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import Sidebar from './Sidebar';
 
 const Header = (props) => {
   const [open, setOpen] = useState(false);
@@ -47,7 +48,8 @@ const Header = (props) => {
           <SearchIcon />
         </Toolbar>
       </AppBar>
-      <Drawer
+      <Sidebar open={open} handleDrawerClose={handleDrawerClose} drawerContent={drawerContent} />
+      {/* <Drawer
         variant="persistent"
         anchor="left"
         open={open}
@@ -65,7 +67,7 @@ const Header = (props) => {
             </ListItem>
           ))}
         </List>
-        </Drawer>
+        </Drawer> */}
     </div>
   )
 }
