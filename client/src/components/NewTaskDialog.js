@@ -27,7 +27,7 @@ const NewTaskDialog = (props) => {
         content: taskContent,
       }
     };
-    console.log(props.data);
+
     const processes = props.data.processes;
     const process = processes['process-1'];
     const taskIds = process.taskIds.push('test');
@@ -40,16 +40,16 @@ const NewTaskDialog = (props) => {
       ...processes,
       process: processToUpdate,
     }
-    console.log(process)
     const newData = {
       ...props.data,
       processes: newProcessTask,
       tasks: newTask,
     };
-    console.log(newData);
+    
     props.setData(newData);
     setTaskName("");
     setTaskContent("");
+    props.handleClose();
   };
   return (
     <div>
@@ -81,7 +81,7 @@ const NewTaskDialog = (props) => {
             <Button onClick={props.handleClose} color="primary">
               Cancel
             </Button>
-            <Button type="submit" onClick={props.handleClose} color="primary">
+            <Button type="submit" color="primary">
               Create
             </Button>
           </DialogActions>
