@@ -48,6 +48,8 @@ const NewTaskDialog = (props) => {
     };
     console.log(newData);
     props.setData(newData);
+    setTaskName("");
+    setTaskContent("");
   };
   return (
     <div>
